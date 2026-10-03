@@ -10,11 +10,11 @@
   top: max(1rem, env(safe-area-inset-top));
   right: 1rem;
   padding: 0.58rem 0.82rem;
-  border: 1px solid rgba(108, 84, 45, 0.18);
+  border: 1px solid rgba(201, 120, 141, 0.28);
   border-radius: 999px;
   background: rgba(255, 253, 247, 0.72);
-  color: #5d4829;
-  box-shadow: 0 8px 28px rgba(62, 43, 14, 0.08);
+  color: var(--rose-deep);
+  box-shadow: 0 8px 28px rgba(143, 82, 98, 0.1);
   backdrop-filter: blur(14px);
   cursor: pointer;
   font-size: 0.72rem;
@@ -46,6 +46,7 @@
   isolation: isolate;
   color: #fff9ea;
   background:
+    radial-gradient(circle at 16% 78%, rgba(244, 209, 217, 0.16), transparent 24rem),
     radial-gradient(circle at 76% 18%, rgba(232, 184, 74, 0.18), transparent 26rem),
     linear-gradient(145deg, #17140f 4%, #2b2216 60%, #73501f 150%);
 }
@@ -75,8 +76,32 @@
 }
 
 .introContent {
+  position: relative;
   width: min(100%, 48rem);
   text-align: center;
+}
+
+.introContent::before,
+.introContent::after {
+  position: absolute;
+  color: rgba(244, 209, 217, 0.6);
+  content: "♡";
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.introContent::before {
+  top: -3.3rem;
+  left: 4%;
+  font-size: 1.5rem;
+  transform: rotate(-14deg);
+}
+
+.introContent::after {
+  right: 7%;
+  bottom: -2.5rem;
+  font-size: 1rem;
+  transform: rotate(12deg);
 }
 
 .introFlower {
@@ -146,8 +171,8 @@
 
 .invitation button {
   padding: 0.6rem 0;
-  border-bottom: 1px solid rgba(232, 184, 74, 0.55);
-  color: #f4d98e;
+  border-bottom: 1px solid rgba(244, 209, 217, 0.62);
+  color: #f6d9df;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -172,6 +197,7 @@
   isolation: isolate;
   overflow: hidden;
   background:
+    radial-gradient(circle at 12% 72%, rgba(244, 209, 217, 0.74), transparent 24rem),
     radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.9), transparent 28rem),
     linear-gradient(155deg, #fff9ea, #f7e7b2 115%);
   animation: sceneIn 850ms cubic-bezier(.2, .7, .2, 1) both;
@@ -213,6 +239,7 @@
   font-size: clamp(1.2rem, 5vw, 1.65rem);
   font-weight: 400;
   font-style: italic;
+  color: var(--rose-deep);
 }
 
 .slides {
@@ -221,10 +248,10 @@
   max-height: 66svh;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  border: 0.45rem solid rgba(255, 253, 247, 0.9);
-  border-radius: 1.35rem;
+  border: 0.45rem solid rgba(255, 247, 249, 0.94);
+  border-radius: 1.65rem;
   background: linear-gradient(145deg, #f7e7b2, #fff9ea);
-  box-shadow: 0 24px 65px rgba(93, 63, 16, 0.18), 0 4px 14px rgba(93, 63, 16, 0.08);
+  box-shadow: 0 24px 65px rgba(143, 82, 98, 0.16), 0 4px 14px rgba(93, 63, 16, 0.07);
 }
 
 .slides::after {
@@ -307,7 +334,7 @@
 }
 
 .dots button.activeDot {
-  background: var(--amber);
+  background: var(--rose);
   transform: scale(1.35);
 }
 
@@ -323,9 +350,9 @@
   margin-top: 1.15rem;
   padding: 0.55rem 0;
   border: 0;
-  border-bottom: 1px solid rgba(201, 139, 46, 0.55);
+  border-bottom: 1px solid rgba(201, 120, 141, 0.55);
   background: transparent;
-  color: #7b5b25;
+  color: var(--rose-deep);
   cursor: pointer;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -349,6 +376,7 @@
   padding: 7rem 1rem 0;
   isolation: isolate;
   background:
+    radial-gradient(ellipse at 10% 44%, rgba(244, 209, 217, 0.62), transparent 30rem),
     radial-gradient(ellipse at 76% 8%, rgba(232, 184, 74, 0.36), transparent 34rem),
     linear-gradient(155deg, #fff9ea, #f8edcf 56%, #eecf7d 130%);
   animation: sceneIn 850ms cubic-bezier(.2, .7, .2, 1) both;
@@ -390,7 +418,7 @@
 
 .eyebrow {
   margin: 0 0 1.35rem;
-  color: #8b6c38;
+  color: var(--rose-deep);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -402,17 +430,18 @@
   position: relative;
   min-height: 60vh;
   padding: clamp(2rem, 7vw, 4.75rem) clamp(1.35rem, 7vw, 4.8rem);
-  border: 1px solid rgba(108, 84, 45, 0.1);
-  border-radius: 2px;
+  border: 1px solid rgba(201, 120, 141, 0.16);
+  border-radius: 1.4rem;
   background: rgba(255, 253, 247, 0.91);
-  box-shadow: 0 28px 80px rgba(87, 59, 13, 0.13), 0 2px 8px rgba(87, 59, 13, 0.06);
+  box-shadow: 0 28px 80px rgba(143, 82, 98, 0.12), 0 2px 8px rgba(87, 59, 13, 0.05);
   backdrop-filter: blur(16px);
 }
 
 .letterCard::before {
   position: absolute;
   inset: 0.55rem;
-  border: 1px solid rgba(201, 139, 46, 0.11);
+  border: 1px solid rgba(201, 120, 141, 0.13);
+  border-radius: 1rem;
   content: "";
   pointer-events: none;
 }
@@ -452,7 +481,7 @@
 
 .letterBody mark {
   padding: 0 0.08em;
-  background: linear-gradient(transparent 56%, rgba(232, 184, 74, 0.3) 56%, rgba(232, 184, 74, 0.3) 88%, transparent 88%);
+  background: linear-gradient(transparent 56%, rgba(244, 209, 217, 0.8) 56%, rgba(244, 209, 217, 0.8) 88%, transparent 88%);
   color: inherit;
 }
 
@@ -486,8 +515,8 @@
 .memoryPhoto {
   margin: 0;
   padding: 0.45rem 0.45rem 0.75rem;
-  background: #fff;
-  box-shadow: 0 16px 35px rgba(75, 49, 12, 0.16);
+  background: #fff7f9;
+  box-shadow: 0 16px 35px rgba(143, 82, 98, 0.16);
 }
 
 .memoryPhoto img,
@@ -547,7 +576,7 @@
 
 .finalMoment > p {
   margin: 2.2rem 0 0;
-  color: #94702d;
+  color: var(--rose-deep);
   font-family: "Iowan Old Style", Georgia, serif;
   font-size: 1.15rem;
   font-style: italic;
@@ -566,12 +595,12 @@
   width: 0.8rem;
   height: 1.6rem;
   border-radius: 80% 20% 75% 25%;
-  background: rgba(232, 184, 74, 0.34);
+  background: rgba(244, 173, 190, 0.48);
   animation: petalFloat 7s ease-in-out infinite alternate;
 }
 
 .petals i:nth-child(1) { left: 12%; top: 28%; transform: rotate(28deg); }
-.petals i:nth-child(2) { right: 8%; top: 58%; animation-delay: -2.4s; }
+.petals i:nth-child(2) { right: 8%; top: 58%; background: rgba(232, 184, 74, 0.34); animation-delay: -2.4s; }
 .petals i:nth-child(3) { right: 27%; top: 8%; animation-delay: -4.1s; transform: rotate(-40deg); }
 
 .srOnly {
