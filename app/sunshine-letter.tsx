@@ -23,7 +23,9 @@ Thoda bewakoof toh hoon — aap jaanti hi ho.
 Aur phir kisi ne kaha tha, ‘Ghoom-phir ke wapas yahin aana.’
 Maine bola tha — ‘Just like a boomerang.’
 
-Shayad boomerang ka matlab hamesha kisi insaan ke paas wapas aana nahi hota. Kabhi-kabhi woh bas un feelings, lessons aur memories tak wapas le aata hai jo humein thoda better bana deti hain.
+Shayad boomerang ka matlab hamesha kisi ke paas turant wapas aana nahi hota. Kabhi-kabhi bas itna hota hai ki dil kisi connection ko forcefully close nahi karta — usse waqt aur space de deta hai.
+
+Aage kabhi kuch wapas aata hai ya nahi, woh ab waqt aur aapki choice par hai.
 
 Thank you for being a beautiful part of a very confusing phase of my life.
 
