@@ -1,0 +1,613 @@
+.experience {
+  min-height: 100svh;
+  overflow: hidden;
+  background: #211d17;
+}
+
+.musicButton {
+  position: fixed;
+  z-index: 20;
+  top: max(1rem, env(safe-area-inset-top));
+  right: 1rem;
+  padding: 0.58rem 0.82rem;
+  border: 1px solid rgba(108, 84, 45, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.72);
+  color: #5d4829;
+  box-shadow: 0 8px 28px rgba(62, 43, 14, 0.08);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  font-size: 0.72rem;
+  letter-spacing: 0.025em;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.musicButton:hover {
+  background: rgba(255, 253, 247, 0.94);
+  transform: translateY(-1px);
+}
+
+.musicButton:focus-visible,
+.invitation button:focus-visible,
+.slideArrow:focus-visible,
+.dots button:focus-visible,
+.continueLetter:focus-visible,
+.skipButton:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+.intro {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 6.5rem 1.5rem 3rem;
+  isolation: isolate;
+  color: #fff9ea;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(232, 184, 74, 0.18), transparent 26rem),
+    linear-gradient(145deg, #17140f 4%, #2b2216 60%, #73501f 150%);
+}
+
+.intro::after,
+.memoryScene::after,
+.letterScene::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.sunHalo {
+  position: absolute;
+  z-index: -1;
+  width: min(78vw, 42rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 231, 178, 0.23), rgba(232, 184, 74, 0.06) 44%, transparent 70%);
+  filter: blur(10px);
+  animation: breathe 7s ease-in-out infinite alternate;
+}
+
+.introContent {
+  width: min(100%, 48rem);
+  text-align: center;
+}
+
+.introFlower {
+  width: 3rem;
+  margin: 0 auto 2rem;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.sunflower {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.introText {
+  min-height: 13rem;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: clamp(1.55rem, 5.9vw, 3rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 0.9em;
+  margin-left: 0.13em;
+  background: currentColor;
+  vertical-align: -0.06em;
+  animation: blink 750ms steps(2, start) infinite;
+}
+
+.invitation {
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 800ms ease, transform 800ms ease;
+}
+
+.invitation.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.invitation p {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 249, 234, 0.67);
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 1.03rem;
+  font-style: italic;
+}
+
+.invitation button,
+.skipButton {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.invitation button {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(232, 184, 74, 0.55);
+  color: #f4d98e;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.invitation button span {
+  display: inline-block;
+  margin-left: 0.45rem;
+  transition: transform 180ms ease;
+}
+
+.invitation button:hover span {
+  transform: translateX(4px);
+}
+
+.memoryScene {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 5.5rem 1rem 2.5rem;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.9), transparent 28rem),
+    linear-gradient(155deg, #fff9ea, #f7e7b2 115%);
+  animation: sceneIn 850ms cubic-bezier(.2, .7, .2, 1) both;
+  outline: 0;
+}
+
+.memoryGlow {
+  position: absolute;
+  z-index: -1;
+  width: min(110vw, 48rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 184, 74, 0.22), transparent 68%);
+  animation: breathe 8s ease-in-out infinite alternate;
+}
+
+.slideshow {
+  width: min(100%, 38rem);
+  color: var(--earth);
+  text-align: center;
+}
+
+.memoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.memoryTitle .sunflower {
+  width: 1.8rem;
+  color: var(--amber);
+}
+
+.memoryTitle h2 {
+  margin: 0;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: clamp(1.2rem, 5vw, 1.65rem);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  max-height: 66svh;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 0.45rem solid rgba(255, 253, 247, 0.9);
+  border-radius: 1.35rem;
+  background: linear-gradient(145deg, #f7e7b2, #fff9ea);
+  box-shadow: 0 24px 65px rgba(93, 63, 16, 0.18), 0 4px 14px rgba(93, 63, 16, 0.08);
+}
+
+.slides::after {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.slides img,
+.memoryFallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slides img {
+  z-index: 2;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1s ease;
+}
+
+.slides img.activeSlide {
+  opacity: 1;
+  animation: memoryZoom 4s ease-out both;
+}
+
+.memoryFallback {
+  display: grid;
+  place-items: center;
+}
+
+.memoryFallback .sunflower {
+  width: 4rem;
+  color: rgba(201, 139, 46, 0.42);
+}
+
+.slideArrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid rgba(108, 84, 45, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 253, 247, 0.78);
+  color: var(--earth);
+  box-shadow: 0 4px 14px rgba(62, 43, 14, 0.1);
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(10px);
+}
+
+.previous { left: 0.75rem; }
+.next { right: 0.75rem; }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.48rem;
+  margin-top: 1rem;
+}
+
+.dots button {
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(108, 84, 45, 0.25);
+  cursor: pointer;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.dots button.activeDot {
+  background: var(--amber);
+  transform: scale(1.35);
+}
+
+.memoryLine {
+  margin: 1.1rem 0 0;
+  color: rgba(108, 84, 45, 0.74);
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 0.93rem;
+  font-style: italic;
+}
+
+.continueLetter {
+  margin-top: 1.15rem;
+  padding: 0.55rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(201, 139, 46, 0.55);
+  background: transparent;
+  color: #7b5b25;
+  cursor: pointer;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: sceneIn 650ms ease both;
+}
+
+.continueLetter span {
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform 180ms ease;
+}
+
+.continueLetter:hover span {
+  transform: translateX(4px);
+}
+
+.letterScene {
+  position: relative;
+  min-height: 100svh;
+  padding: 7rem 1rem 0;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 76% 8%, rgba(232, 184, 74, 0.36), transparent 34rem),
+    linear-gradient(155deg, #fff9ea, #f8edcf 56%, #eecf7d 130%);
+  animation: sceneIn 850ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.letterScene::before {
+  position: fixed;
+  z-index: -1;
+  top: -40vh;
+  left: -38vw;
+  width: 92vw;
+  height: 150vh;
+  content: "";
+  background: linear-gradient(100deg, transparent 18%, rgba(255, 255, 255, 0.36) 48%, transparent 72%);
+  transform: rotate(15deg);
+  animation: sunlight 14s ease-in-out infinite alternate;
+}
+
+.dust {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle at 18% 26%, rgba(201, 139, 46, 0.38) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 81% 34%, rgba(201, 139, 46, 0.3) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 52% 71%, rgba(201, 139, 46, 0.26) 0 1px, transparent 1.5px);
+  background-size: 11rem 13rem, 15rem 18rem, 13rem 16rem;
+  animation: drift 22s linear infinite;
+}
+
+.letterWrap {
+  position: relative;
+  width: min(100%, 49rem);
+  margin: 0 auto;
+  outline: 0;
+}
+
+.eyebrow {
+  margin: 0 0 1.35rem;
+  color: #8b6c38;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.letterCard {
+  position: relative;
+  min-height: 60vh;
+  padding: clamp(2rem, 7vw, 4.75rem) clamp(1.35rem, 7vw, 4.8rem);
+  border: 1px solid rgba(108, 84, 45, 0.1);
+  border-radius: 2px;
+  background: rgba(255, 253, 247, 0.91);
+  box-shadow: 0 28px 80px rgba(87, 59, 13, 0.13), 0 2px 8px rgba(87, 59, 13, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.letterCard::before {
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(201, 139, 46, 0.11);
+  content: "";
+  pointer-events: none;
+}
+
+.letterCard header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.25rem;
+  color: var(--earth);
+}
+
+.letterCard header .sunflower {
+  width: 2.1rem;
+  color: var(--amber);
+}
+
+.letterCard header p {
+  margin: 0;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.letterBody {
+  min-height: 18rem;
+  color: #363029;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: clamp(1.08rem, 3.9vw, 1.28rem);
+  line-height: 1.78;
+}
+
+.letterBody p {
+  margin: 0 0 1.45em;
+  white-space: pre-line;
+}
+
+.letterBody mark {
+  padding: 0 0.08em;
+  background: linear-gradient(transparent 56%, rgba(232, 184, 74, 0.3) 56%, rgba(232, 184, 74, 0.3) 88%, transparent 88%);
+  color: inherit;
+}
+
+.signature {
+  color: var(--earth);
+  font-style: italic;
+}
+
+.skipButton {
+  position: sticky;
+  bottom: 1rem;
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.9);
+  color: #7b633a;
+  font-size: 0.72rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.memory {
+  position: relative;
+  z-index: 2;
+  width: 8rem;
+  margin: -1.75rem 0 0 auto;
+  transform: rotate(3deg);
+}
+
+.memoryPhoto {
+  margin: 0;
+  padding: 0.45rem 0.45rem 0.75rem;
+  background: #fff;
+  box-shadow: 0 16px 35px rgba(75, 49, 12, 0.16);
+}
+
+.memoryPhoto img,
+.photoPlaceholder {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  place-items: center;
+  object-fit: cover;
+  background: linear-gradient(145deg, #f7e7b2, #fff9ea);
+}
+
+.photoPlaceholder .sunflower {
+  width: 2.4rem;
+  color: rgba(201, 139, 46, 0.6);
+}
+
+.memoryPhoto figcaption {
+  margin-top: 0.55rem;
+  color: #7d6c54;
+  font-family: "Bradley Hand", "Segoe Print", cursive;
+  font-size: 0.65rem;
+  text-align: center;
+}
+
+.finalMoment {
+  display: grid;
+  min-height: 82svh;
+  place-items: center;
+  align-content: center;
+  padding: 8rem 1.5rem;
+  color: #49371f;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.finalMoment.finalVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.finalMoment > .sunflower {
+  width: 3.3rem;
+  margin-bottom: 2rem;
+  color: var(--amber);
+}
+
+.finalMoment blockquote {
+  margin: 0;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: clamp(1.65rem, 6vw, 3.1rem);
+  line-height: 1.36;
+  letter-spacing: -0.025em;
+}
+
+.finalMoment > p {
+  margin: 2.2rem 0 0;
+  color: #94702d;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.petals {
+  position: absolute;
+  width: min(80vw, 30rem);
+  height: 20rem;
+  pointer-events: none;
+}
+
+.petals i {
+  position: absolute;
+  display: block;
+  width: 0.8rem;
+  height: 1.6rem;
+  border-radius: 80% 20% 75% 25%;
+  background: rgba(232, 184, 74, 0.34);
+  animation: petalFloat 7s ease-in-out infinite alternate;
+}
+
+.petals i:nth-child(1) { left: 12%; top: 28%; transform: rotate(28deg); }
+.petals i:nth-child(2) { right: 8%; top: 58%; animation-delay: -2.4s; }
+.petals i:nth-child(3) { right: 27%; top: 8%; animation-delay: -4.1s; transform: rotate(-40deg); }
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes breathe { to { transform: scale(1.07); opacity: 0.72; } }
+@keyframes sceneIn { from { opacity: 0; transform: translateY(8px); } }
+@keyframes sunlight { to { transform: translateX(46vw) rotate(15deg); } }
+@keyframes drift { to { background-position: 8rem 13rem, -9rem 17rem, 7rem -16rem; } }
+@keyframes petalFloat { to { translate: 1.2rem -1rem; rotate: 32deg; } }
+@keyframes memoryZoom { to { transform: scale(1.045); } }
+
+@media (min-width: 720px) {
+  .musicButton { top: 1.5rem; right: 1.5rem; }
+  .letterScene { padding-top: 8rem; }
+  .memory { width: 9.5rem; margin-right: -3.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunHalo,
+  .memoryGlow,
+  .slides img.activeSlide,
+  .letterScene::before,
+  .dust,
+  .petals i,
+  .cursor {
+    animation: none;
+  }
+}
